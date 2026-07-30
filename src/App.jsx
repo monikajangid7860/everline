@@ -7,6 +7,8 @@ import PastServices from './components/PastServices'
 import Testimonials from './components/Testimonials'
 import Footer from './components/Footer'
 import Header from './components/Header'
+import CinematicStory from './components/CinematicStory'
+import TravelingEditorialSection from './components/TravelingEditorialSection'
 
 function App() {
   return (
@@ -15,9 +17,10 @@ function App() {
     <Hero/>
     <About/>
     <HoverServices/>
-    <PastServices/>
+    <CinematicStory/>
+    {/* <PastServices/> */}
     <Testimonials/>
-    
+    <TravelingEditorialSection/>
     <Footer/>
 
     </>
