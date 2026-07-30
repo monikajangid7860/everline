@@ -90,6 +90,8 @@ export default function PastProjects() {
     gsap.set(cards, {
       opacity: 0.8,
       scale: 0.90,
+      y: (index) => (index % 2 === 0 ? 80 : -80),
+      rotate: (index) => (index % 2 === 0 ? -2 : 2),
       willChange: "transform, opacity",
     });
 
@@ -100,6 +102,8 @@ export default function PastProjects() {
       gsap.to(card, {
         opacity: 1,
         scale: 1,
+        y: 0,
+        rotate: 0,
         ease: "none",
         scrollTrigger: {
           trigger: card,
