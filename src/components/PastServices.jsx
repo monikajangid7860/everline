@@ -66,12 +66,10 @@ export default function PastProjects() {
   const track = trackRef.current;
   if (!section || !track) return;
 
-  const media = gsap.matchMedia();
   const ctx = gsap.context(() => {
-    media.add("(min-width: 768px)", () => {
     const cards = cardsRef.current;
 
-    const scrollAmount = () => Math.max(0, track.scrollWidth - window.innerWidth);
+    const scrollAmount = () => track.scrollWidth - window.innerWidth;
 
     const horizontal = gsap.to(track, {
       x: () => -scrollAmount(),
@@ -90,8 +88,6 @@ export default function PastProjects() {
     gsap.set(cards, {
       opacity: 0.8,
       scale: 0.90,
-      y: (index) => (index % 2 === 0 ? 80 : -80),
-      rotate: (index) => (index % 2 === 0 ? -2 : 2),
       willChange: "transform, opacity",
     });
 
@@ -102,8 +98,6 @@ export default function PastProjects() {
       gsap.to(card, {
         opacity: 1,
         scale: 1,
-        y: 0,
-        rotate: 0,
         ease: "none",
         scrollTrigger: {
           trigger: card,
@@ -130,13 +124,9 @@ export default function PastProjects() {
         }
       );
     });
-    });
   }, section);
 
-  return () => {
-    ctx.revert();
-    media.revert();
-  };
+  return () => ctx.revert();
 }, []);
 
 
@@ -164,26 +154,26 @@ export default function PastProjects() {
       </div>
 
       {/* ---------- HORIZONTAL SCROLL ---------- */}
-      <div ref={sectionRef} className="h-screen overflow-hidden relative max-md:h-auto max-md:overflow-visible">
+      <div ref={sectionRef} className="h-screen overflow-hidden relative max-md:h-[75vh]">
            
         <div
           ref={trackRef}
-          className="z-20 flex gap-24 items-center h-full w-max px-[10vw] max-md:w-full max-md:flex-col max-md:items-stretch max-md:gap-10 max-md:px-6 max-md:py-12"
+          className="z-20 flex gap-24 items-center h-full w-max px-[10vw] max-md:gap-6 max-md:px-6"
         >
-          <h1 className="text-4xl text-[#990f02] z-10 max-md:text-2xl max-md:text-center">
+          <h1 className="text-4xl text-[#990f02] z-10 max-md:text-2xl">
             PAST <br />SERVICES
            </h1>
           {projects.map((item, i) => (
             <div
               key={i}
               ref={(el) => (cardsRef.current[i] = el)}
-              className="min-w-[420px] shrink-0 max-md:min-w-0 max-md:w-full"
+              className="min-w-[420px] shrink-0 max-md:min-w-[78vw]"
             >
               <div className="border border-black/10 p-2">
                 <img
                   src={`${item.img}&auto=format&fit=crop&w=900&q=80`}
                   alt={item.title}
-                  className="w-full h-[520px] object-cover max-md:h-auto max-md:aspect-[4/5]"
+                  className="w-full h-[520px] object-cover max-md:h-[52vh]"
                 />
               </div>
               <p className="mt-4 text-sm text-center">{item.title}</p>

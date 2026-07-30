@@ -1,69 +1,156 @@
 "use client";
 
-import projects from "./data";
-import ProjectSection from "./ProjectSection";
-import QuoteBlock from "./QuoteBlock";
-import CTASection from "./CTAsection";
-
+const projects = [
+  {
+    id: "01",
+    category: "EDITORIAL",
+    title: "Editorial Campaign",
+    description:
+      "Studio-lit story crafted for print and digital placement.",
+    image:
+      "https://images.unsplash.com/photo-1551880213-0861c4ae7460?w=1200&auto=format&fit=crop&q=80",
+  },
+  {
+    id: "02",
+    category: "PORTRAIT",
+    title: "Personal Shoot",
+    description:
+      "An intimate exploration of natural light and emotion.",
+    image:
+      "https://plus.unsplash.com/premium_photo-1683133857379-9068081bc7bf?w=1200&auto=format&fit=crop&q=80",
+  },
+  {
+    id: "03",
+    category: "FASHION",
+    title: "Fashion Story",
+    description:
+      "Luxury editorial styling created for contemporary brands.",
+    image:
+      "https://images.unsplash.com/photo-1580478491436-fd6a937acc9e?w=1200&auto=format&fit=crop&q=80",
+  },
+];
 export default function MobileEditorial() {
   return (
     <section className="md:hidden bg-[#fffff0]">
 
-      {/* ---------------- HERO ---------------- */}
+      {/* Hero */}
 
-      <header className="relative flex min-h-screen flex-col justify-center px-8">
+      <div className="px-7 pt-20 pb-16">
 
-        <span className="text-[11px] uppercase tracking-[0.45em] text-[#990f02]">
-          Selected Works
-        </span>
-
-        <h1 className="mt-8 font-serif text-[62px] leading-[0.9] text-[#171717]">
-          Past
-          <br />
-          Projects
-        </h1>
-
-        <p className="mt-10 max-w-[260px] text-[16px] leading-8 text-black/55">
-          A curated collection of editorial campaigns, fashion stories and
-          portrait photography crafted with timeless visual direction.
+        <p className="uppercase tracking-[0.45em] text-xs text-[#990f02]">
+          Past Projects
         </p>
 
-        {/* Scroll Indicator */}
+        <h2 className="mt-5 text-5xl leading-none text-[#171717]">
+          Selected
+          <br />
+          Works
+        </h2>
 
-        <div className="absolute bottom-12 left-8 flex items-center gap-4">
+        <p className="mt-6 text-sm leading-7 text-black/55 max-w-xs">
+          A collection of fashion campaigns, editorial stories and portrait
+          photography crafted with a timeless visual language.
+        </p>
 
-          <span className="h-px w-12 bg-black/20" />
+      </div>
 
-          <span className="text-xs uppercase tracking-[0.35em] text-black/40">
-            Scroll
-          </span>
+      {/* Projects */}
 
-        </div>
+      <div>
 
-      </header>
+        {projects.map((project, index) => (
 
-      {/* ---------------- PROJECTS ---------------- */}
+          <section
+            key={project.id}
+            className="relative px-7 pb-28"
+          >
 
-      {projects.map((project, index) => (
-        <div key={project.id}>
+            {/* Divider */}
 
-          <ProjectSection
-            project={project}
-            index={index}
-          />
+            <div className="mb-10 h-px bg-black/10" />
 
-          {/* Quote after every project except the last */}
+            {/* Huge Number */}
 
-          {index !== projects.length - 1 && (
-            <QuoteBlock quote={project.quote} />
-          )}
+            <span className="absolute top-10 right-6 text-[120px] font-light text-black/[0.04] leading-none pointer-events-none select-none">
+              {project.id}
+            </span>
 
-        </div>
-      ))}
+            {/* Image */}
 
-      {/* ---------------- CTA ---------------- */}
+            <div
+              className={`overflow-hidden ${
+                index % 2 === 0
+                  ? ""
+                  : "ml-auto w-[88%]"
+              }`}
+            >
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full aspect-[3/4] object-cover"
+              />
+            </div>
 
-      <CTASection />
+            {/* Content */}
+
+            <div
+              className={`mt-8 ${
+                index % 2 === 0
+                  ? ""
+                  : "pl-8"
+              }`}
+            >
+              <p className="uppercase tracking-[0.35em] text-[11px] text-[#990f02]">
+                {project.category}
+              </p>
+
+              <h3 className="mt-3 text-3xl leading-tight text-[#171717]">
+                {project.title}
+              </h3>
+
+              <p className="mt-4 text-[15px] leading-7 text-black/60">
+                {project.description}
+              </p>
+
+              <button className="group mt-8 flex items-center gap-3">
+
+                <span className="uppercase tracking-[0.25em] text-xs">
+                  View Project
+                </span>
+
+                <span className="transition-transform duration-300 group-hover:translate-x-2">
+                  →
+                </span>
+
+              </button>
+
+            </div>
+
+          </section>
+
+        ))}
+
+      </div>
+
+      {/* Ending */}
+
+      <section className="px-7 py-24">
+
+        <div className="h-px bg-black/10 mb-12" />
+
+        <h2 className="text-5xl leading-tight text-[#171717]">
+          Let's Create
+          <br />
+          Something
+          <br />
+          Beautiful.
+        </h2>
+
+        <button className="mt-10 border border-black px-8 py-4 uppercase tracking-[0.25em] text-xs hover:bg-black hover:text-[#fffff0] transition">
+          Get In Touch
+        </button>
+
+      </section>
 
     </section>
   );
