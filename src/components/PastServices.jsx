@@ -143,7 +143,7 @@ export default function PastProjects() {
               {Array.from({ length: 6 }).map((_, j) => (
                 <span
                   key={j}
-                  className="text-3xl font-semibold tracking-widest"
+                  className="text-3xl font-semibold tracking-widest max-md:text-xl"
                 >
                   PAST PROJECTS
                 </span>
@@ -154,26 +154,26 @@ export default function PastProjects() {
       </div>
 
       {/* ---------- HORIZONTAL SCROLL ---------- */}
-      <div ref={sectionRef} className="h-screen overflow-hidden relative">
+      <div ref={sectionRef} className="h-screen overflow-hidden relative max-md:h-[75vh]">
            
         <div
           ref={trackRef}
-          className=" z-20 flex gap-24 items-center h-full w-max px-[10vw]"
+          className="z-20 flex gap-24 items-center h-full w-max px-[10vw] max-md:gap-6 max-md:px-6"
         >
-          <h1 className="text-4xl text-[#990f02] z-10">
+          <h1 className="text-4xl text-[#990f02] z-10 max-md:text-2xl">
             PAST <br />SERVICES
            </h1>
           {projects.map((item, i) => (
             <div
               key={i}
               ref={(el) => (cardsRef.current[i] = el)}
-              className="min-w-[420px] shrink-0"
+              className="min-w-[420px] shrink-0 max-md:min-w-[78vw]"
             >
               <div className="border border-black/10 p-2">
                 <img
                   src={`${item.img}&auto=format&fit=crop&w=900&q=80`}
                   alt={item.title}
-                  className="w-full h-[520px] object-cover"
+                  className="w-full h-[520px] object-cover max-md:h-[52vh]"
                 />
               </div>
               <p className="mt-4 text-sm text-center">{item.title}</p>

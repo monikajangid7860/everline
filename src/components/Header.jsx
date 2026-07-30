@@ -19,7 +19,7 @@ export default function Header() {
       ref={headerRef}
       className="sticky top-0 py-5 z-50 bg-[#3b3c36]/90 backdrop-blur-sm"
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 pt-4">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 pt-4 max-sm:px-4 max-sm:pt-2">
         
         {/* LOGO */}
         <div className="flex items-center gap-3">
@@ -34,7 +34,7 @@ export default function Header() {
         </div>
 
         {/* NAV */}
-        <nav className="flex gap-10 text-xs tracking-widest text-[#fffff0]">
+        <nav className="flex gap-10 text-xs tracking-widest text-[#fffff0] max-sm:gap-4 max-sm:text-[10px] max-sm:tracking-[0.12em]">
           <a className="relative group cursor-pointer">
             HOME
             <span className="absolute -bottom-1 left-0 h-[1px] w-0 bg-[#fffff0] transition-all duration-300 group-hover:w-full" />

@@ -164,20 +164,20 @@ gsap.to(sectionRef.current, {
   return (
     <section
       ref={sectionRef}
-      className="relative max-w-full m-auto overflow-hidden min-h-screen bg-[#fffff0] flex"
+      className="relative max-w-full m-auto overflow-hidden min-h-screen bg-[#fffff0] flex max-md:flex-col"
     >
       {/* LEFT IMAGE */}
-      <div className="w-[40%] p-12 flex items-center">
+      <div className="w-[40%] p-12 flex items-center max-md:w-full max-md:p-6">
         <img
           ref={imageLeftRef}
           src="https://images.unsplash.com/photo-1660018322139-0e58555df00d?w=800"
           alt="Founder portrait"
-          className="w-full h-screen object-cover"
+          className="w-full h-screen object-cover max-md:h-[70vh]"
         />
       </div>
 
       {/* MOVING STRIP */}
-      <div className="relative w-[8%] bg-[#3b3c36] overflow-hidden">
+      <div className="relative w-[8%] bg-[#3b3c36] overflow-hidden max-md:w-full max-md:h-14">
         <div
           ref={marqueeRef}
           className="absolute top-0 left-0 w-full will-change-transform"
@@ -200,9 +200,9 @@ gsap.to(sectionRef.current, {
       {/* CONTENT */}
       <div
         ref={textRef}
-        className="w-[52%] px-20 py-32 flex flex-col justify-center"
+        className="w-[52%] px-20 py-32 flex flex-col justify-center max-lg:px-12 max-md:w-full max-md:px-6 max-md:py-16"
       >
-        <h2 className="text-4xl font-semibold text-[#3b3c36] leading-tight">
+        <h2 className="text-4xl font-semibold text-[#3b3c36] leading-tight max-md:text-3xl">
           Meet Camille Evans
         </h2>
 
@@ -222,7 +222,7 @@ gsap.to(sectionRef.current, {
           brand’s voice.
         </p>
 
-        <div className="mt-14 w-142 h-75 overflow-hidden">
+        <div className="mt-14 w-142 h-75 overflow-hidden max-md:mt-10 max-md:w-full max-md:h-auto max-md:aspect-[16/9]">
           <img
             ref={imageSmallRef}
             src="https://images.unsplash.com/photo-1565672377218-afb6d165973a?w=600"

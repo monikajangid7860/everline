@@ -119,34 +119,34 @@ useLayoutEffect(() => {
   return (
     <section
       ref={heroRef}
-      className="min-h-screen grid grid-cols-3 bg-[#fffff0]"
+      className="min-h-screen grid grid-cols-3 bg-[#fffff0] max-md:grid-cols-1"
     >
       {/* LEFT — TEXT */}
-      <div className="relative z-10 flex  col-span-2 flex-col justify-center px-20">
+      <div className="relative z-10 flex col-span-2 flex-col justify-center px-20 max-lg:px-12 max-md:min-h-[58vh] max-md:px-6 max-md:py-16">
         
-        <div className="flex items-center gap-6 mt-24">
-          <h1 className="text-[clamp(4rem,8vw,7rem)] font-extrabold leading-none text-[#232323]">
+        <div className="flex items-center gap-6 mt-24 max-md:mt-0 max-md:gap-3">
+          <h1 className="text-[clamp(4rem,8vw,7rem)] font-extrabold leading-none text-[#232323] max-md:text-[clamp(2rem,10vw,4rem)]">
             EVER&nbsp;{text}
           </h1>
 
           <span
             ref={caretRef}
-            className="block w-[6px] h-[120px] bg-[#990f02]"
+            className="block w-[6px] h-[120px] bg-[#990f02] max-md:h-14 max-md:w-1 shrink-0"
           />
         </div>
 
-        <p className="mt-10 max-w-xl text-sm tracking-wide leading-relaxed text-[#232323]">
+        <p className="mt-10 max-w-xl text-sm tracking-wide leading-relaxed text-[#232323] max-md:mt-7">
           EVERLINE STUDIO CREATES SOULFUL, EDITORIAL-STYLE EXPERIENCES
           ROOTED IN INTENTION AND DRIVEN BY DETAIL.
         </p>
 
-        <div className="mt-14">
+        <div className="mt-14 max-md:mt-9">
           <Button />
         </div>
       </div>
 
       {/* RIGHT — IMAGE (ANCHORED) */}
-<div className="relative h-full bg-black">
+<div className="relative h-full min-h-[420px] bg-black max-md:min-h-[52vh]">
   <LiquidImage img="https://images.unsplash.com/photo-1571513800374-df1bbe650e56?w=800" />
 </div>
 

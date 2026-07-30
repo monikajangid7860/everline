@@ -124,18 +124,18 @@ export default function FinalContact() {
       {/* ---------- CONTACT BLOCK ---------- */}
       <div
         ref={contactRef}
-        className="max-w-6xl mx-auto px-12 pb-30 grid grid-cols-2 gap-24 items-center"
+        className="max-w-6xl mx-auto px-12 pb-30 grid grid-cols-2 gap-24 items-center max-md:grid-cols-1 max-md:gap-10 max-md:px-6 max-md:pb-16"
       >
         {/* LEFT */}
         <div ref={titleRef}>
-          <h2 className="text-5xl font-bold tracking-wide text-[#3b3c36]">
+          <h2 className="text-5xl font-bold tracking-wide text-[#3b3c36] max-md:text-4xl">
             GET IN TOUCH
           </h2>
         </div>
 
         {/* RIGHT FORM */}
         <div ref={formRef} className="space-y-8 text-sm">
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-2 gap-6 max-sm:grid-cols-1 max-sm:gap-4">
             <input className="border-b border-black p-2 outline-none" placeholder="First name" />
             <input className="border-b border-black p-2 outline-none" placeholder="Last name" />
           </div>
@@ -181,7 +181,7 @@ export default function FinalContact() {
               <img
                 key={`${block}-${i}`}
                 src={`${img}?auto=format&fit=crop&w=400&q=80`}
-                className="w-40 h-40 object-cover"
+                className="w-40 h-40 object-cover max-md:w-28 max-md:h-28"
                 alt=""
               />
             ))

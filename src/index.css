@@ -4,13 +4,20 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 
 }
 
 body {
   font-family: "Raleway", sans-serif;
   background: #000;
+  min-width: 320px;
+  overflow-x: clip;
 
+}
+
+#root {
+  overflow-x: clip;
 }
 
 .logo{

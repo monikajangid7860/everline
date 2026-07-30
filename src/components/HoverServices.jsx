@@ -23,6 +23,8 @@ export default function HoverServices() {
   const rowsRef = useRef([]);
 
   useEffect(() => {
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+
   rowsRef.current.forEach((row) => {
     if (!row) return;
 
@@ -30,6 +32,13 @@ export default function HoverServices() {
     const image = imageWrap.querySelector("img");
     const text = row.querySelector(".hover-text");
     const accent = row.querySelector(".accent-line");
+
+    if (isMobile) {
+      gsap.set([imageWrap, text], { opacity: 1, y: 0, clipPath: "inset(0% 0% 0% 0%)" });
+      gsap.set(image, { scale: 1, x: 0, y: 0 });
+      gsap.set(accent, { width: "15rem" });
+      return;
+    }
 
     // ===== Initial quiet state =====
     gsap.set(imageWrap, {
@@ -128,7 +137,7 @@ export default function HoverServices() {
 
 
   return (
-    <section className="bg-[#3b3c36] py-40">
+    <section className="bg-[#3b3c36] py-40 max-md:py-16">
       <div className="max-w-7xl mx-auto bg-[#fffff0] mb-8">
 
         {services.map((item, i) => (
@@ -137,7 +146,7 @@ export default function HoverServices() {
             ref={(el) => (rowsRef.current[i] = el)}
             className="
   relative grid grid-cols-[1.3fr_1fr_1fr]
-  items-center px-12 py-24
+  items-center px-12 py-24 max-md:grid-cols-1 max-md:gap-8 max-md:px-6 max-md:py-12
   border-t border-black/10
   transition-all duration-300
   hover:-translate-y-1
@@ -145,16 +154,16 @@ export default function HoverServices() {
 
           >
             {/* TITLE */}
-            <h3 className="text-5xl font-semibold text-[#3b3c36] leading-tight">
+            <h3 className="text-5xl font-semibold text-[#3b3c36] leading-tight max-md:text-3xl">
               {item.title}
             </h3>
 
             {/* IMAGE */}
-            <div className="hover-image overflow-hidden w-75">
+            <div className="hover-image overflow-hidden w-75 max-md:w-full">
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-full h-64 object-cover"
+                className="w-full h-64 object-cover max-md:h-[55vw]"
               />
             </div>
 
@@ -164,7 +173,7 @@ export default function HoverServices() {
             </p>
 
             {/* ACCENT */}
-            <span className="accent-line absolute bottom-0 left-12 h-[2px] bg-[#990f02]" />
+            <span className="accent-line absolute bottom-0 left-12 h-[2px] bg-[#990f02] max-md:left-6" />
 
           </div>
         ))}
