@@ -43,21 +43,22 @@ export default function WhyWithImage() {
   }, [activeIndex]);
 
   return (
-    <section className="bg-[#fffff0] py-48">
-      <div className="max-w-6xl mx-auto px-8 grid grid-cols-2 gap-24 items-center">
+    <section className="bg-[#fffff0] py-48 max-md:py-16">
+      <div className="max-w-6xl mx-auto px-8 grid grid-cols-2 gap-24 items-center max-md:grid-cols-1 max-md:gap-10 max-md:px-6">
 
         {/* ---------- LEFT LIST ---------- */}
         <div>
-          <h3 className="text-3xl font-semibold  mb-14 text-[#3b3c36] inline-block px-4 py-2">
+          <h3 className="text-3xl font-semibold  mb-14 text-[#3b3c36] inline-block px-4 py-2 max-md:mb-8 max-md:px-0">
             Why Brands Choose Everline
           </h3>
 
-          <ul className="space-y-6  px-6 py-8">
+          <ul className="space-y-6 px-6 py-8 max-md:space-y-5 max-md:px-0 max-md:py-0">
             {reasons.map((item, i) => (
               <li
                 key={i}
                 onMouseEnter={() => setActiveIndex(i)}
                 onFocus={() => setActiveIndex(i)}
+                onClick={() => setActiveIndex(i)}
                 tabIndex={0}
                 className={`
                   cursor-pointer transition-opacity duration-300 
@@ -71,7 +72,7 @@ export default function WhyWithImage() {
         </div>
 
         {/* ---------- RIGHT IMAGE ---------- */}
-        <div className="relative h-[520px] overflow-hidden">
+        <div className="relative h-[520px] overflow-hidden max-md:h-auto max-md:aspect-[4/5]">
           {reasons.map((item, i) => (
             <img
               key={i}

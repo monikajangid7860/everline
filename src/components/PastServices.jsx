@@ -66,10 +66,12 @@ export default function PastProjects() {
   const track = trackRef.current;
   if (!section || !track) return;
 
+  const media = gsap.matchMedia();
   const ctx = gsap.context(() => {
+    media.add("(min-width: 768px)", () => {
     const cards = cardsRef.current;
 
-    const scrollAmount = () => track.scrollWidth - window.innerWidth;
+    const scrollAmount = () => Math.max(0, track.scrollWidth - window.innerWidth);
 
     const horizontal = gsap.to(track, {
       x: () => -scrollAmount(),
@@ -124,9 +126,13 @@ export default function PastProjects() {
         }
       );
     });
+    });
   }, section);
 
-  return () => ctx.revert();
+  return () => {
+    ctx.revert();
+    media.revert();
+  };
 }, []);
 
 
@@ -154,26 +160,26 @@ export default function PastProjects() {
       </div>
 
       {/* ---------- HORIZONTAL SCROLL ---------- */}
-      <div ref={sectionRef} className="h-screen overflow-hidden relative max-md:h-[75vh]">
+      <div ref={sectionRef} className="h-screen overflow-hidden relative max-md:h-auto max-md:overflow-visible">
            
         <div
           ref={trackRef}
-          className="z-20 flex gap-24 items-center h-full w-max px-[10vw] max-md:gap-6 max-md:px-6"
+          className="z-20 flex gap-24 items-center h-full w-max px-[10vw] max-md:w-full max-md:flex-col max-md:items-stretch max-md:gap-10 max-md:px-6 max-md:py-12"
         >
-          <h1 className="text-4xl text-[#990f02] z-10 max-md:text-2xl">
+          <h1 className="text-4xl text-[#990f02] z-10 max-md:text-2xl max-md:text-center">
             PAST <br />SERVICES
            </h1>
           {projects.map((item, i) => (
             <div
               key={i}
               ref={(el) => (cardsRef.current[i] = el)}
-              className="min-w-[420px] shrink-0 max-md:min-w-[78vw]"
+              className="min-w-[420px] shrink-0 max-md:min-w-0 max-md:w-full"
             >
               <div className="border border-black/10 p-2">
                 <img
                   src={`${item.img}&auto=format&fit=crop&w=900&q=80`}
                   alt={item.title}
-                  className="w-full h-[520px] object-cover max-md:h-[52vh]"
+                  className="w-full h-[520px] object-cover max-md:h-auto max-md:aspect-[4/5]"
                 />
               </div>
               <p className="mt-4 text-sm text-center">{item.title}</p>
