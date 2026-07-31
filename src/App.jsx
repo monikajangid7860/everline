@@ -9,6 +9,7 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 import CinematicStory from './components/CinematicStory'
 import TravelingEditorialSection from './components/TravelingEditorialSection'
+import CavityTextSection from './components/CavityTextSection'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
     <PastServices/>
     <Testimonials/>
     <TravelingEditorialSection/>
+    <CavityTextSection/>
     <Footer/>
 
     </>
