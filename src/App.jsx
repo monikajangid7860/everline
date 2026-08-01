@@ -25,7 +25,7 @@ function App() {
     <PastServices/>
     <Testimonials/>
     {/* <TravelingEditorialSection/> */}
-    <CavityTextSection/>
+    {/* <CavityTextSection/> */}
     <Footer/>
 
     </>
