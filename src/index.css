@@ -4,20 +4,18 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: clip;
-
+  overflow-x: hidden;
 }
 
 body {
   font-family: "Raleway", sans-serif;
   background: #000;
   min-width: 320px;
-  overflow-x: clip;
-
+  overflow-x: hidden;
 }
 
 #root {
-  overflow-x: clip;
+  overflow-x: hidden;
 }
 
 .logo{

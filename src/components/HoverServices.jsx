@@ -40,67 +40,111 @@ export default function HoverServices() {
         const number = row.querySelector(".service-number");
         const accent = row.querySelector(".accent-line");
 
-        if (mobile) {
-          gsap.set([imageWrap, copy], { autoAlpha: 1, y: 0, clipPath: "inset(0% 0% 0% 0%)" });
-          gsap.set(image, { scale: 1 });
-          gsap.set(accent, { width: "100%" });
-          return;
-        }
-
         const side = row === rowsRef.current[1] ? 1 : -1;
+        const revealOffset = mobile ? { titleX: side * 50, numberX: side * 28, imageX: 0, imageY: 36, copyX: 0, copyY: 18 } : { titleX: side * 100, numberX: side * 55, imageX: side * -75, imageY: 60, copyX: side * -45, copyY: 26 };
+        const revealStart = mobile ? "top 95%" : "top 88%";
+        const revealEnd = mobile ? "top 55%" : "top 42%";
 
-        // Scroll carries each editorial element into place before hover takes over.
+        gsap.set([imageWrap, copy, title, number, accent], { autoAlpha: 1 });
+        gsap.set(image, { scale: 1.08, x: 0, y: 0 });
+        gsap.set(accent, { width: 0 });
+
         gsap.timeline({
           scrollTrigger: {
             trigger: row,
-            start: "top 88%",
-            end: "top 42%",
+            start: revealStart,
+            end: revealEnd,
             scrub: 0.8,
           },
         })
-          .fromTo(title, { x: side * 100, y: 34, rotate: side * 2, autoAlpha: 0 }, { x: 0, y: 0, rotate: 0, autoAlpha: 1, duration: 1, ease: "none" }, 0)
-          .fromTo(number, { x: side * 55, autoAlpha: 0 }, { x: 0, autoAlpha: 1, duration: 0.8, ease: "none" }, 0.08)
-          .fromTo(imageWrap, { x: side * -75, y: 60, rotate: side * -3, autoAlpha: 0, clipPath: "inset(14% 18% 14% 18%)" }, { x: 0, y: 0, rotate: 0, autoAlpha: 1, clipPath: "inset(0% 0% 0% 0%)", duration: 1, ease: "none" }, 0.05)
-          .fromTo(image, { scale: 1.18 }, { scale: 1, duration: 1, ease: "none" }, 0.05)
-          .fromTo(copy, { x: side * -45, y: 26, autoAlpha: 0 }, { x: 0, y: 0, autoAlpha: 1, duration: 0.9, ease: "none" }, 0.18)
-          .to(accent, { width: "100%", duration: 0.85, ease: "none" }, 0.15);
+          .fromTo(
+            title,
+            { x: revealOffset.titleX, y: 34, rotate: side * 2, autoAlpha: 0 },
+            { x: 0, y: 0, rotate: 0, autoAlpha: 1, duration: 1, ease: "none" },
+            0
+          )
+          .fromTo(
+            number,
+            { x: revealOffset.numberX, autoAlpha: 0 },
+            { x: 0, autoAlpha: 1, duration: 0.8, ease: "none" },
+            0.08
+          )
+          .fromTo(
+            imageWrap,
+            { x: revealOffset.imageX, y: revealOffset.imageY, rotate: side * -3, autoAlpha: 0, clipPath: "inset(18% 18% 18% 18%)" },
+            { x: 0, y: 0, rotate: 0, autoAlpha: 1, clipPath: "inset(0% 0% 0% 0%)", duration: 1, ease: "none" },
+            0.05
+          )
+          .fromTo(
+            image,
+            { scale: 1.16 },
+            { scale: 1.02, duration: 1, ease: "none" },
+            0.05
+          )
+          .fromTo(
+            copy,
+            { x: revealOffset.copyX, y: revealOffset.copyY, autoAlpha: 0 },
+            { x: 0, y: 0, autoAlpha: 1, duration: 0.9, ease: "none" },
+            0.18
+          )
+          .to(
+            accent,
+            { width: "100%", duration: 0.85, ease: "none" },
+            0.15
+          );
 
-        gsap.set(accent, { width: 0 });
-
-        const timeline = gsap.timeline({ paused: true, defaults: { ease: "power3.out" } });
-        timeline
+        const hoverTimeline = gsap.timeline({ paused: true, defaults: { ease: "power3.out" } });
+        hoverTimeline
           .to(row, { backgroundColor: "#f5f0e4", duration: 0.55 }, 0)
-          .to(title, { x: 18, letterSpacing: "0.015em", duration: 0.6 }, 0)
-          .to(number, { color: "#990f02", x: 6, duration: 0.45 }, 0)
-          .to(image, { scale: 1.04, duration: 0.75 }, 0.05);
+          .to(title, { x: 18, letterSpacing: "0.015em", duration: 0.55 }, 0)
+          .to(number, { color: "#990f02", x: 4, duration: 0.45 }, 0)
+          .to(accent, { width: "100%", duration: 0.45 }, 0)
+          .to(image, { scale: 1.12, duration: 0.65 }, 0)
+          .to(image, { rotation: side * 1.5, duration: 0.65 }, 0);
 
         const drift = (event) => {
           const bounds = imageWrap.getBoundingClientRect();
-          const x = (event.clientX - bounds.left) / bounds.width - 0.5;
-          const y = (event.clientY - bounds.top) / bounds.height - 0.5;
-          gsap.to(image, { x: x * 14, y: y * 14, duration: 0.65, ease: "power3.out" });
+          const x = ((event.clientX || event.touches?.[0]?.clientX) - bounds.left) / bounds.width - 0.5;
+          const y = ((event.clientY || event.touches?.[0]?.clientY) - bounds.top) / bounds.height - 0.5;
+          const multiplier = mobile ? 10 : 14;
+          gsap.to(image, { x: x * multiplier, y: y * multiplier, duration: 0.7, ease: "power3.out" });
         };
         const resetImage = () => gsap.to(image, { x: 0, y: 0, duration: 0.7, ease: "power3.out" });
-        const play = () => timeline.play();
+        const play = () => hoverTimeline.play();
         const reverse = () => {
-          timeline.reverse();
+          hoverTimeline.reverse();
           resetImage();
         };
 
-        row.addEventListener("mouseenter", play);
-        row.addEventListener("mouseleave", reverse);
+        row.addEventListener("pointerenter", play);
+        row.addEventListener("pointerleave", reverse);
         row.addEventListener("focusin", play);
         row.addEventListener("focusout", reverse);
-        imageWrap.addEventListener("mousemove", drift);
-        imageWrap.addEventListener("mouseleave", resetImage);
+        imageWrap.addEventListener("pointermove", drift);
+        imageWrap.addEventListener("pointerleave", resetImage);
+        imageWrap.addEventListener("touchstart", play, { passive: true });
+        imageWrap.addEventListener("touchend", reverse, { passive: true });
+
+        if (mobile) {
+          const floatTween = gsap.to(image, {
+            y: 10,
+            duration: 3.4,
+            ease: "sine.inOut",
+            repeat: -1,
+            yoyo: true,
+          });
+          cleanups.push(() => floatTween.kill());
+        }
 
         cleanups.push(() => {
-          row.removeEventListener("mouseenter", play);
-          row.removeEventListener("mouseleave", reverse);
+          row.removeEventListener("pointerenter", play);
+          row.removeEventListener("pointerleave", reverse);
           row.removeEventListener("focusin", play);
           row.removeEventListener("focusout", reverse);
-          imageWrap.removeEventListener("mousemove", drift);
-          imageWrap.removeEventListener("mouseleave", resetImage);
+          imageWrap.removeEventListener("pointermove", drift);
+          imageWrap.removeEventListener("pointerleave", resetImage);
+          imageWrap.removeEventListener("touchstart", play);
+          imageWrap.removeEventListener("touchend", reverse);
         });
       });
     }, sectionRef);

@@ -19,9 +19,9 @@ function App() {
     <Hero/>
     <About/>
     <HoverServices/>
-    <CinematicStory/>
+    {/* <CinematicStory/> */}
     {/* <Thesection/> */}
-    <Emergent/>
+    {/* <Emergent/> */}
     <PastServices/>
     <Testimonials/>
     {/* <TravelingEditorialSection/> */}
