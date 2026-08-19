@@ -27,7 +27,7 @@ function App() {
     <Testimonials/>
     {/* <TravelingEditorialSection/> */}
     {/* <CavityTextSection/> */}
-  {/* <Letsee/> */}
+  <Letsee/>
     <Footer/>
 
     </>
