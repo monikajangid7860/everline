@@ -21,11 +21,11 @@ import gsap from "gsap";
 const FLOATING_IMAGES = [
   {
     id: "img-1",
-    src: "https://picsum.photos/seed/atelier-01/500/650",
-    sizeClass: "w-28 h-36 sm:w-32 sm:h-44 lg:w-36 lg:h-48",
+    src: "/images/email.webp",
+     sizeClass: "w-30 sm:w-32 lg:w-30",
     visibilityClass: "",
-    x: 6,
-    y: 16,
+    x: 10,
+    y: 10,
     vx: 0.14,
     vy: -3.4,
     rotation: -8,
@@ -40,11 +40,11 @@ const FLOATING_IMAGES = [
   },
   {
     id: "img-2",
-    src: "https://picsum.photos/seed/atelier-02/560/720",
+    src: "/images/mobile.webp",
     sizeClass: "w-32 h-44 sm:w-40 sm:h-52 lg:w-48 lg:h-64",
     visibilityClass: "",
     x: 1,
-    y: 54,
+    y: 4,
     vx: -0.1,
     vy: 2.7,
     rotation: -5,
@@ -63,7 +63,7 @@ const FLOATING_IMAGES = [
     sizeClass: "w-24 h-32 sm:w-28 sm:h-36 lg:w-32 lg:h-44",
     visibilityClass: "",
     x: 11,
-    y: 84,
+    y: 4,
     vx: 0.22,
     vy: -2.1,
     rotation: 6,
@@ -81,7 +81,7 @@ const FLOATING_IMAGES = [
     src: "https://picsum.photos/seed/atelier-04/480/560",
     sizeClass: "w-24 h-28 sm:w-28 sm:h-36 lg:w-32 lg:h-40",
     visibilityClass: "",
-    x: 35,
+    x: 5,
     y: 8,
     vx: -0.16,
     vy: 3.3,
@@ -119,7 +119,7 @@ const FLOATING_IMAGES = [
     src: "https://picsum.photos/seed/atelier-06/500/640",
     sizeClass: "w-28 h-36 sm:w-32 sm:h-44 lg:w-40 lg:h-52",
     visibilityClass: "hidden sm:block",
-    x: 93,
+    x: 3,
     y: 46,
     vx: 0.18,
     vy: 1.9,
@@ -154,10 +154,10 @@ const FLOATING_IMAGES = [
   },
   {
     id: "img-8",
-    src: "https://picsum.photos/seed/atelier-08/460/580",
+    src: "/images/heart.png",
     sizeClass: "w-24 h-32 sm:w-28 sm:h-36 lg:w-32 lg:h-40",
     visibilityClass: "hidden lg:block",
-    x: 53,
+    x: 3,
     y: 91,
     vx: -0.28,
     vy: 2.3,
@@ -173,7 +173,7 @@ const FLOATING_IMAGES = [
   },
   {
     id: "img-9",
-    src: "https://picsum.photos/seed/atelier-09/420/500",
+    src: "",
     sizeClass: "w-20 h-24 sm:w-24 sm:h-28 lg:w-28 lg:h-32",
     visibilityClass: "hidden lg:block",
     x: 69,
@@ -327,28 +327,34 @@ export default function FloatingHero() {
     >
       {/* Floating photographic cards */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        {FLOATING_IMAGES.map((cfg, i) => (
-          <div
-            key={cfg.id}
-            ref={(el) => {
-              imageRefs.current[i] = el;
-            }}
-            className={`absolute top-0 left-0 ${cfg.sizeClass} ${cfg.visibilityClass}`}
-            style={{
-              zIndex: cfg.zIndex,
-              willChange: "transform",
-              transform: "translate3d(0,0,0)",
-            }}
-          >
-            <img
-              src={cfg.src}
-              alt=""
-              className="h-full w-full rounded-[2px] object-cover shadow-[0_18px_40px_-12px_rgba(59,42,31,0.45)]"
-              draggable={false}
-              loading="eager"
-            />
-          </div>
-        ))}
+      {FLOATING_IMAGES.map((cfg, i) => (
+  <div
+    key={cfg.id}
+    ref={(el) => {
+      imageRefs.current[i] = el;
+    }}
+    className={`absolute top-0 left-0 ${cfg.sizeClass} ${cfg.visibilityClass}`}
+    style={{
+      zIndex: cfg.zIndex,
+      willChange: "transform",
+      transform: "translate3d(0,0,0)",
+    }}
+  >
+    <img
+      src={cfg.src}
+      alt=""
+      draggable={false}
+      loading="eager"
+      className="
+        block
+        h-auto
+        w-full
+        object-contain
+        drop-shadow-[0_18px_40px_rgba(59,42,31,0.22)]
+      "
+    />
+  </div>
+))}
       </div>
 
       {/* Central editorial content */}
