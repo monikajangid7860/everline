@@ -43,7 +43,7 @@ const FLOATING_IMAGES = [
     src: "/images/mobile.webp",
     sizeClass: "w-32 h-44 sm:w-40 sm:h-52 lg:w-48 lg:h-64",
     visibilityClass: "",
-    x: 1,
+    x: 10,
     y: 4,
     vx: -0.1,
     vy: 2.7,
@@ -59,7 +59,7 @@ const FLOATING_IMAGES = [
   },
   {
     id: "img-3",
-    src: "https://picsum.photos/seed/atelier-03/480/620",
+    src: "/images/fire.png",
     sizeClass: "w-24 h-32 sm:w-28 sm:h-36 lg:w-32 lg:h-44",
     visibilityClass: "",
     x: 11,
@@ -78,7 +78,7 @@ const FLOATING_IMAGES = [
   },
   {
     id: "img-4",
-    src: "https://picsum.photos/seed/atelier-04/480/560",
+    src: "/images/heart.png",
     sizeClass: "w-24 h-28 sm:w-28 sm:h-36 lg:w-32 lg:h-40",
     visibilityClass: "",
     x: 5,
@@ -97,7 +97,7 @@ const FLOATING_IMAGES = [
   },
   {
     id: "img-5",
-    src: "https://picsum.photos/seed/atelier-05/560/700",
+    src: "/images/heart.png",
     sizeClass: "w-32 h-40 sm:w-40 sm:h-52 lg:w-52 lg:h-64",
     visibilityClass: "",
     x: 87,
@@ -116,7 +116,7 @@ const FLOATING_IMAGES = [
   },
   {
     id: "img-6",
-    src: "https://picsum.photos/seed/atelier-06/500/640",
+    src: "/images/email.avif",
     sizeClass: "w-28 h-36 sm:w-32 sm:h-44 lg:w-40 lg:h-52",
     visibilityClass: "hidden sm:block",
     x: 3,
@@ -135,7 +135,7 @@ const FLOATING_IMAGES = [
   },
   {
     id: "img-7",
-    src: "https://picsum.photos/seed/atelier-07/540/680",
+    src: "/images/heart.png",
     sizeClass: "w-32 h-40 sm:w-36 sm:h-48 lg:w-44 lg:h-56",
     visibilityClass: "hidden sm:block",
     x: 81,
@@ -154,10 +154,10 @@ const FLOATING_IMAGES = [
   },
   {
     id: "img-8",
-    src: "/images/heart.png",
+    src: "/images/email.avif",
     sizeClass: "w-24 h-32 sm:w-28 sm:h-36 lg:w-32 lg:h-40",
     visibilityClass: "hidden lg:block",
-    x: 3,
+    x: 30,
     y: 91,
     vx: -0.28,
     vy: 2.3,
@@ -173,10 +173,10 @@ const FLOATING_IMAGES = [
   },
   {
     id: "img-9",
-    src: "",
+    src: "/images/smile.avif",
     sizeClass: "w-20 h-24 sm:w-24 sm:h-28 lg:w-28 lg:h-32",
     visibilityClass: "hidden lg:block",
-    x: 69,
+    x: 19,
     y: 5,
     vx: 0.3,
     vy: -1.7,
@@ -323,7 +323,7 @@ export default function FloatingHero() {
   return (
     <section
       ref={sectionRef}
-      className={` relative w-full min-h-screen overflow-hidden bg-[#ECF3A6]`}
+      className={` relative w-full min-h-screen overflow-hidden bg-[#fffff0]`}
     >
       {/* Floating photographic cards */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
@@ -364,7 +364,7 @@ export default function FloatingHero() {
           style={{ fontFamily: "var(--font-fraunces)" }}
         >
           If you can&apos;t reach a million
-          <br className="hidden sm:block" /> people with €0 ad spend,
+          <br className="hidden sm:block" /> peooooople with €0 ad spend,
           <br className="hidden sm:block" /> your branding sucks.
         </h1>
 
