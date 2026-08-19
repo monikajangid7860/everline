@@ -172,4 +172,630 @@ img {
           white-space: nowrap;
           border: 0;
         }
-      
+      /* =========================================================
+   ROOT
+========================================================= */
+
+.takeover {
+  position: relative;
+  width: 100%;
+  background: #070707;
+  overflow: clip;
+}
+
+/* =========================================================
+   STAGE
+========================================================= */
+
+.takeover__stage {
+  position: relative;
+  min-height: 200vh;
+}
+
+.takeover__content {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  z-index: 10;
+
+  transform-style: preserve-3d;
+  perspective: 1800px;
+
+  will-change: transform;
+}
+
+/* =========================================================
+   IMAGE SECTION
+========================================================= */
+
+.takeover-image {
+  position: relative;
+  margin-top: -100vh;
+
+  height: 200vh;
+
+  pointer-events: none;
+}
+
+.takeover-image__sticky {
+  position: sticky;
+
+  top: 0;
+
+  width: 100%;
+
+  height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  perspective: 1800px;
+
+  overflow: hidden;
+}
+
+/* =========================================================
+   FRAME
+========================================================= */
+
+.takeover-image__frame {
+
+  position: relative;
+
+  width: min(88vw,1600px);
+
+  height: min(82vh,980px);
+
+  overflow: hidden;
+
+  border-radius: 32px;
+
+  transform-style: preserve-3d;
+
+  will-change: transform;
+
+  isolation: isolate;
+
+}
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.takeover-image__media{
+
+  position:absolute;
+
+  inset:0;
+
+}
+
+.takeover-image__img{
+
+  position:absolute;
+
+  inset:0;
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+  transform-origin:center center;
+
+  will-change:transform;
+
+}
+
+/* =========================================================
+   VIGNETTE
+========================================================= */
+
+.takeover-image__vignette{
+
+  position:absolute;
+
+  inset:0;
+
+  pointer-events:none;
+
+  background:
+
+  radial-gradient(
+
+  circle at center,
+
+  transparent 45%,
+
+  rgba(0,0,0,.12) 70%,
+
+  rgba(0,0,0,.35) 100%
+
+  );
+
+}
+
+/* =========================================================
+   LIGHT
+========================================================= */
+
+.takeover-image__light{
+
+  position:absolute;
+
+  inset:-20%;
+
+  pointer-events:none;
+
+  background:
+
+  radial-gradient(
+
+  circle at 50% 35%,
+
+  rgba(255,255,255,.10),
+
+  transparent 70%
+
+  );
+
+  mix-blend-mode:screen;
+
+  opacity:.5;
+
+}
+
+/* =========================================================
+   GRAIN
+========================================================= */
+
+.takeover-image__grain{
+
+  position:absolute;
+
+  inset:0;
+
+  pointer-events:none;
+
+  opacity:.12;
+
+  background-image:
+
+  radial-gradient(circle,rgba(255,255,255,.15) .6px,transparent .6px);
+
+  background-size:14px 14px;
+
+  mix-blend-mode:soft-light;
+
+}
+
+/* =========================================================
+   CAPTION
+========================================================= */
+
+.takeover-image__caption{
+
+  position:absolute;
+
+  left:50%;
+
+  bottom:7%;
+
+  transform:translateX(-50%);
+
+  width:min(900px,88vw);
+
+  text-align:center;
+
+  color:white;
+
+  z-index:5;
+
+}
+
+.takeover-image__eyebrow{
+
+  font-size:.75rem;
+
+  letter-spacing:.28em;
+
+  text-transform:uppercase;
+
+  opacity:.7;
+
+}
+
+.takeover-image__title{
+
+  margin-top:18px;
+
+  font-size:clamp(2rem,5vw,5rem);
+
+  line-height:.95;
+
+  font-weight:700;
+
+  letter-spacing:-.04em;
+
+}
+
+/* =========================================================
+   MASK
+========================================================= */
+
+.takeover-mask{
+
+  position:absolute;
+
+  inset:0;
+
+  background:#070707;
+
+  transform-origin:bottom;
+
+  will-change:transform;
+
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1024px){
+
+.takeover-image__frame{
+
+width:92vw;
+
+height:76vh;
+
+border-radius:24px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.takeover__stage{
+
+min-height:170vh;
+
+}
+
+.takeover-image{
+
+margin-top:-90vh;
+
+height:170vh;
+
+}
+
+.takeover-image__frame{
+
+width:100%;
+
+height:72vh;
+
+border-radius:18px;
+
+}
+
+.takeover-image__caption{
+
+bottom:6%;
+
+padding-inline:24px;
+
+}
+
+.takeover-image__title{
+
+font-size:clamp(2rem,10vw,3.8rem);
+
+}
+
+}/* ===========================
+   ROOT
+=========================== */
+
+.letsee {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #f4f1e8;
+  color: #111;
+}
+
+.letsee__bg {
+  position: absolute;
+  inset: 0;
+  background: #f4f1e8;
+}
+
+.letsee__ambient {
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(circle at 50% 30%, rgba(255,255,255,.45), transparent 45%),
+    radial-gradient(circle at 20% 80%, rgba(255,255,255,.18), transparent 40%);
+  pointer-events: none;
+}
+
+.letsee__noise {
+  position: absolute;
+  inset: 0;
+  opacity: .04;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(0,0,0,.22) .5px, transparent .5px);
+  background-size: 10px 10px;
+}
+
+/* ===========================
+   GRID
+=========================== */
+
+.letsee__grid{
+  position:relative;
+  z-index:2;
+
+  width:min(92vw,1700px);
+
+  margin-inline:auto;
+
+  min-height:100vh;
+
+  display:grid;
+
+  grid-template-columns:260px 1fr 260px;
+
+  align-items:center;
+
+  gap:clamp(40px,4vw,90px);
+}
+
+/* ===========================
+   CENTER
+=========================== */
+
+.letsee__content{
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  text-align:center;
+
+}
+
+.letsee__eyebrow{
+
+  font-size:.78rem;
+
+  letter-spacing:.32em;
+
+  text-transform:uppercase;
+
+  margin-bottom:48px;
+
+  opacity:.75;
+
+}
+
+.letsee__title{
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  gap:.08em;
+
+  font-size:clamp(4rem,8vw,8.5rem);
+
+  line-height:.84;
+
+  letter-spacing:-.07em;
+
+  font-weight:900;
+
+}
+
+.letsee__title span{
+
+  display:block;
+
+}
+
+.letsee__description{
+
+  width:min(640px,90%);
+
+  margin-top:42px;
+
+  font-size:1.15rem;
+
+  line-height:1.9;
+
+  color:#383838;
+
+}
+
+/* ===========================
+   ASIDES
+=========================== */
+
+.letsee__aside{
+
+  position:relative;
+
+  display:flex;
+
+  justify-content:center;
+
+}
+
+.letsee__aside--left{
+
+  transform:translateY(90px);
+
+}
+
+.letsee__aside--right{
+
+  transform:translateY(-70px);
+
+}
+
+/* ===========================
+   IMAGE CARD
+=========================== */
+
+.editorial-card{
+
+  width:100%;
+
+  overflow:hidden;
+
+  background:white;
+
+  box-shadow:
+
+  0 40px 90px rgba(0,0,0,.12);
+
+}
+
+.editorial-card--left{
+
+  aspect-ratio:4/5;
+
+}
+
+.editorial-card--right{
+
+  aspect-ratio:4/5;
+
+}
+
+.editorial-card__media{
+
+  width:100%;
+
+  height:100%;
+
+  overflow:hidden;
+
+}
+
+.editorial-card__image{
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+  display:block;
+
+}
+
+/* ===========================
+   TABLET
+=========================== */
+
+@media(max-width:1024px){
+
+.letsee__grid{
+
+grid-template-columns:180px 1fr 180px;
+
+gap:30px;
+
+}
+
+.letsee__title{
+
+font-size:clamp(3rem,8vw,6rem);
+
+}
+
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:768px){
+
+.letsee{
+
+padding:80px 24px;
+
+}
+
+.letsee__grid{
+
+grid-template-columns:1fr;
+
+gap:60px;
+
+}
+
+.letsee__aside{
+
+transform:none;
+
+}
+
+.letsee__aside--right{
+
+order:3;
+
+}
+
+.editorial-card{
+
+max-width:320px;
+
+margin:auto;
+
+}
+
+.letsee__content{
+
+order:2;
+
+}
+
+.letsee__title{
+
+font-size:clamp(3rem,14vw,4.6rem);
+
+}
+
+.letsee__description{
+
+font-size:1rem;
+
+line-height:1.8;
+
+margin-top:28px;
+
+}
+
+}

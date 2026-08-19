@@ -12,6 +12,7 @@ import TravelingEditorialSection from './components/TravelingEditorialSection'
 import CavityTextSection from './components/CavityTextSection'
 import Thesection from './components/Thesection'
 import Emergent from './components/Emergent'
+import Letsee from './components/Letsee'
 function App() {
   return (
     
@@ -26,6 +27,7 @@ function App() {
     <Testimonials/>
     {/* <TravelingEditorialSection/> */}
     {/* <CavityTextSection/> */}
+  {/* <Letsee/> */}
     <Footer/>
 
     </>
