@@ -81,8 +81,8 @@ const FLOATING_IMAGES = [
     src: "/images/heart.png",
     sizeClass: "w-24 h-28 sm:w-28 sm:h-36 lg:w-32 lg:h-40",
     visibilityClass: "",
-    x: 5,
-    y: 8,
+    x: 15,
+    y: 98,
     vx: -0.16,
     vy: 3.3,
     rotation: -4,
@@ -323,7 +323,7 @@ export default function FloatingHero() {
   return (
     <section
       ref={sectionRef}
-      className={` relative w-full min-h-screen overflow-hidden bg-red-300 `}
+      className={` relative w-full min-h-screen overflow-hidden bg-[#3b3c36] `}
     >
       {/* Floating photographic cards */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
@@ -360,7 +360,7 @@ export default function FloatingHero() {
       {/* Central editorial content */}
       <div className="relative z-30 flex min-h-screen flex-col items-center justify-center px-6 text-center">
         <h1
-          className="max-w-4xl text-[#242018] text-[clamp(2rem,6vw,4.5rem)] leading-[1.05] italic"
+          className="max-w-4xl text-[#fffff0] text-[clamp(2rem,6vw,4.5rem)] leading-[1.05] italic"
           style={{ fontFamily: "var(--font-fraunces)" }}
         >
           If you can&apos;t reach a million
@@ -368,7 +368,7 @@ export default function FloatingHero() {
           <br className="hidden sm:block" /> your branding sucks.
         </h1>
 
-        <p className="mt-6 max-w-md text-sm sm:text-base text-[#3B3A2E]">
+        <p className="mt-6 max-w-md text-sm sm:text-base text-[#fffff0]">
           We will 10x your social presence or work for
           <br className="hidden sm:block" /> free until it&apos;s done.
         </p>
@@ -376,17 +376,17 @@ export default function FloatingHero() {
         <div className="mt-8 flex items-center gap-6">
           <button
             type="button"
-            className="rounded-full bg-[#242018] px-6 py-3 text-sm font-medium text-[#ECF3A6] transition-transform duration-200 hover:scale-[1.03] active:scale-[0.98]"
+            className="rounded-full bg-[#fffff0] px-6 py-3 text-sm font-medium text-[#3b3c36] transition-transform duration-200 hover:scale-[1.03] active:scale-[0.98]"
           >
             Our approach
           </button>
 
           <a
             href="#contact"
-            className="group inline-flex items-center gap-2 text-sm font-medium text-[#242018]"
+            className="group inline-flex items-center gap-2 text-sm font-medium text-[#fffff0]"
           >
             Work with us
-            <span className="flex h-6 w-6 items-center justify-center rounded-full border border-[#242018] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+            <span className="flex h-6 w-6 items-center justify-center rounded-full border border-[#fffff0] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
               <svg
                 width="12"
                 height="12"

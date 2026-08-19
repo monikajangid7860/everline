@@ -119,7 +119,7 @@ export default function FinalContact() {
   return (
     <section
       ref={sectionRef}
-      className="bg-[#fffff0] overflow-hidden"
+      className="bg-[#fffff0] overflow-hidden py-8 md:py-22"
     >
       {/* ---------- CONTACT BLOCK ---------- */}
       <div
