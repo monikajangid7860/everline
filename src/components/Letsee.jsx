@@ -323,7 +323,7 @@ export default function FloatingHero() {
   return (
     <section
       ref={sectionRef}
-      className={` relative w-full min-h-screen overflow-hidden bg-[#fffff0]`}
+      className={` relative w-full min-h-screen overflow-hidden bg-red-300 `}
     >
       {/* Floating photographic cards */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
